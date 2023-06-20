@@ -1,33 +1,48 @@
+Input: [1, 2, 3, 4, 5, 6]
 
-# Binary Search in a Sorted 1D Array
-## Problem Statement
-You are given a sorted 1D array and a search key. Your task is to implement the BinarySearch function to find the index of the array's element that is equal to the value of the search key. If the element is not found, return -1.
+ReverseArray:
+1. Create a new array to store the reversed elements.
+   reversed = []
+2. Set currentIndex = 0
+3. Start iterating from the end of the input array (i = length - 1) to the beginning (i >= 0).
+   i = 5, currentIndex = 0
+      reversed[0] = inputArray[5] => reversed = [6]
+      currentIndex = 1
+   i = 4, currentIndex = 1
+      reversed[1] = inputArray[4] => reversed = [6, 5]
+      currentIndex = 2
+   i = 3, currentIndex = 2
+      reversed[2] = inputArray[3] => reversed = [6, 5, 4]
+      currentIndex = 3
+   i = 2, currentIndex = 3
+      reversed[3] = inputArray[2] => reversed = [6, 5, 4, 3]
+      currentIndex = 4
+   i = 1, currentIndex = 4
+      reversed[4] = inputArray[1] => reversed = [6, 5, 4, 3, 2]
+      currentIndex = 5
+   i = 0, currentIndex = 5
+      reversed[5] = inputArray[0] => reversed = [6, 5, 4, 3, 2, 1]
+      currentIndex = 6
+4. Return the reversed array.
 
-The search algorithm used in your function should be a binary search, which is an efficient algorithm for searching in sorted arrays.
+ReverseArrayWithSwap:
+1. Set start = 0 and end = length - 1
+   start = 0, end = 5
+2. While start < end:
+   2.1 Swap the elements at start and end positions in the input array.
+       SwapElements(array, 0, 5) => array = [6, 2, 3, 4, 5, 1]
+       start = 1, end = 4
+   2.2 Swap the elements at start and end positions in the input array.
+       SwapElements(array, 1, 4) => array = [6, 5, 3, 4, 2, 1]
+       start = 2, end = 3
+   2.3 Swap the elements at start and end positions in the input array.
+       SwapElements(array, 2, 3) => array = [6, 5, 4, 3, 2, 1]
+       start = 3, end = 2 (breaks the loop)
+3. Return the modified input array.
 
-## Function Signature
+Output:
+Reversed array (using ReverseArray):
+6 5 4 3 2 1
 
-![1](./NewFolder/1.jpg)
-## Input
-The function BinarySearch takes in two parameters:
-
-arr (a sorted list of integers): The array in which the search will be performed.
-target (an integer): The value to search for in the array.
-Output
-The function should return an integer representing the index of the element in the array that is equal to the target value. If the element is not found, return -1.
-
-## Example
-
-![2](./NewFolder/2.jpg)
-
-## Constraints
-The input array arr is guaranteed to be sorted in ascending order.
-The length of the input array arr will not exceed 10^6.
-The values in the input array arr will be unique.
-Resources
-Wikipedia: Binary Search Algorithm
-## Stretch Goal
-Note: The stretch goal is optional and not required to complete the main problem.
-
-If the array contained objects sorted based on a given property, and you were searching for a certain property value, you would need to modify the binary search algorithm accordingly. Here is the pseudocode for performing binary search on an array of objects based on a specific property value:
-![3](./NewFolder/3.jpg)
+Reversed array (using ReverseArrayWithSwap):
+6 5 4 3 2 1
