@@ -1,11 +1,7 @@
+# array-insert-shift
 
-# Binary Search in a Sorted 1D Array
-
-
-
-![1](./NewFolder/1.jpg)
+![2](./array-reverse/Assest/2.jpg)
 
 # array-insert-shift
 
-![2](./NewFolder/2.jpg)
-
+![2](./array-insert-shift/1.jpg)
