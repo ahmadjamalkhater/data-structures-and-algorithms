@@ -1,7 +1,5 @@
-# array-insert-shift
+# data-structures-and-algorithms
 
-![2](./array-reverse/Assest/2.jpg)
-
-# array-insert-shift
-
-![2](./array-insert-shift/1.jpg)
+![array-insert-shift](./array-reverse/Assest/2.jpg)
+![array-insert-shift](./array-insert-shift/1.jpg)
+![array binary search](./array-binary-search/REDME.md)
