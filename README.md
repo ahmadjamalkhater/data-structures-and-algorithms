@@ -6,3 +6,4 @@
 ![link list](./link-list/1.jpg)
 ![link list](./link-list/2.jpg)
 ![link list](./link-list/3.jpg)
+ [Linked Lists insertion](/linked-list-insertions/Redme.md)
