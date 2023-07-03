@@ -7,3 +7,5 @@
 ![link list](./link-list/2.jpg)
 ![link list](./link-list/3.jpg)
  [Linked Lists insertion](/linked-list-insertions/Redme.md)
+
+ [linked-list-kth](https://github.com/ahmadjamalkhater/linked-list-kth)
