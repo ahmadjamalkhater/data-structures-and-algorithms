@@ -1,54 +1,24 @@
-﻿public class Node
+﻿using DataStructures;
+using System;
+
+namespace CodeChallenges
 {
-    public int Value { get; set; }
-    public Node Next { get; set; }
-
-    public Node(int value)
+    class Program
     {
-        Value = value;
-        Next = null;
-    }
-}
-
-public class LinkedList
-{
-    public Node Head { get; set; }
-
-    public int KthFromEnd(int k)
-    {
-        if (Head == null)
+        //CC8
+        static void Main(string[] args)
         {
-            throw new Exception("The linked list is empty.");
+            LinkedList list1 = new LinkedList();
+            list1.Append(1);
+            list1.Append(3);
+
+            LinkedList list2 = new LinkedList();
+            list2.Append(5);
+            list2.Append(9);
+            list2.Append(4);
+
+            LinkedList zippedList = LinkedLists.ZipLists(list1, list2);
+            Console.WriteLine(zippedList.ToString());
         }
-
-        if (k < 0)
-        {
-            throw new Exception("Invalid value for k.");
-        }
-
-        Node slowPtr = Head;
-        Node fastPtr = Head;
-
-        // Move the fast pointer k nodes ahead of the slow pointer
-        for (int i = 0; i < k; i++)
-        {
-            if (fastPtr.Next != null)
-            {
-                fastPtr = fastPtr.Next;
-            }
-            else
-            {
-                throw new Exception("The linked list does not have k nodes.");
-            }
-        }
-
-        // Move both pointers until the fast pointer reaches the end
-        while (fastPtr.Next != null)
-        {
-            slowPtr = slowPtr.Next;
-            fastPtr = fastPtr.Next;
-        }
-
-        return slowPtr.Value;
     }
 }
