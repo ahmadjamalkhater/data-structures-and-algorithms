@@ -10,4 +10,4 @@
 
  [linked-list-kth](https://github.com/ahmadjamalkhater/linked-list-kth)
  
-[stack-and-queue](https://github.com/ahmadjamalkhater/data-structures-and-algorithms./blob/master/challenge10/stack-and-queue/Redme.md)
+ [stack-and-queue](https://github.com/ahmadjamalkhater/data-structures-and-algorithms./blob/master/challenge10/stack-and-queue/Redme.md)
