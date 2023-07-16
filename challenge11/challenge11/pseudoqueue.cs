@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.Generic;
 namespace data_structures_and_algorithms_.challenge11.pseudo_queue
 {
     public class PseudoQueue<T>
