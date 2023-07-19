@@ -7,9 +7,9 @@ namespace challenge11
         static void Main(string[] args)
         {
             PseudoQueue<int> pseudoQueue = new PseudoQueue<int>();
-            pseudoQueue.Enqueue(10);
-            pseudoQueue.Enqueue(15);
-            pseudoQueue.Enqueue(20);
+            pseudoQueue.Enqueue();
+            pseudoQueue.Enqueue();
+            pseudoQueue.Enqueue();
 
             int value = pseudoQueue.Dequeue(); // Returns 10
             Console.WriteLine(value);
