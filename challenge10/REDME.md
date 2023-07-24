@@ -1,4 +1,4 @@
-# Stack and Queue Implementation
+﻿# Stack and Queue Implementation
 # Summary
 This application provides an implementation of the Stack and Queue data structures using a linked list as the underlying data storage mechanism. It includes the classes Stack<T> and Queue<T> which allow operations like push, pop, enqueue, dequeue, peek, and checking if the stack or queue is empty.
 
