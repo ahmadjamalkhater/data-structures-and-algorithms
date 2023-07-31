@@ -1,4 +1,4 @@
-﻿# Binary Search Tree Implementation in C#
+﻿﻿# Binary Search Tree Implementation in C#
 
 ## Description
 
@@ -17,7 +17,11 @@ To check if a specific value exists in the Binary Search Tree, the `Contains` me
 ### Traversal Methods
 
 The project also provides three different methods for traversing the Binary Search Tree: pre-order, in-order, and post-order traversal. All three traversal methods use recursion to visit each node in the tree and perform specific operations. The time complexity for each traversal method is O(n), where n is the number of nodes in the tree, as each node needs to be visited exactly once.
-
+## Assest
+![1](./Assest/aa)
+![2](./Assest/dd)
+![3](./Assest/ff)
+![4](./Assest/ss)
 ## Solution
 
 To use the Binary Search Tree implementation, follow these steps:
@@ -31,27 +35,45 @@ To use the Binary Search Tree implementation, follow these steps:
 Example:
 
 ```csharp
-using System;
-using Trees;
-
-class Program
+namespace Challenge15_BinaryTree
 {
-    static void Main(string[] args)
+    public class Program
     {
-        BinarySearchTree<int> bst = new BinarySearchTree<int>();
-        bst.Add(5);
-        bst.Add(3);
-        bst.Add(7);
-        bst.Add(2);
-        bst.Add(4);
-        bst.Add(6);
-        bst.Add(8);
+        static void Main(string[] args)
+        {
+            BinarySearchTree newTree = new BinarySearchTree();
 
-        Console.WriteLine("Pre-order traversal: " + string.Join(", ", bst.PreOrderTraversal()));
-        Console.WriteLine("In-order traversal: " + string.Join(", ", bst.InOrderTraversal()));
-        Console.WriteLine("Post-order traversal: " + string.Join(", ", bst.PostOrderTraversal()));
+            newTree.Add(20);
+            newTree.Add(30);
+            newTree.Add(25);
+            newTree.Add(15);
 
-        Console.WriteLine("Contains 4: " + bst.Contains(4)); // true
-        Console.WriteLine("Contains 10: " + bst.Contains(10)); // false
+            newTree.Add(10);
+
+            newTree.Add(5);
+            newTree.Add(35);
+            newTree.Add(40);
+            newTree.Add(21);
+
+
+            Console.WriteLine("InOrder Traversal here -----");
+            string result2 = String.Join(",", newTree.InOrder(newTree.Root, new List<int>()));
+
+            Console.WriteLine(result2);
+            Console.WriteLine();
+
+            Console.WriteLine("PreOder Traversal here -----");
+            string result1 = String.Join(",", newTree.PreOder(newTree.Root, new List<int>()));
+            Console.WriteLine(result1);
+            Console.WriteLine();
+
+
+            Console.WriteLine("PostOrder Traversal here -----");
+            string result3 = String.Join(",", newTree.PostOrder(newTree.Root, new List<int>()));
+            Console.WriteLine(result3);
+            Console.WriteLine();
+
+            Console.WriteLine(newTree.Contains(34));
+        }
     }
 }
