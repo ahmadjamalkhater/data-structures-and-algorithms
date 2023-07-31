@@ -77,3 +77,49 @@ namespace Challenge15_BinaryTree
         }
     }
 }
+```
+
+# challenge16 Binary Search Tree Operations
+
+## Description:
+This code implements a Binary Search Tree (BST) with the following operations:
+1. Add: Add a new node to the BST while maintaining its binary search property.
+2. Contains: Check if the BST contains a specific value.
+3. FindMaximumValue: Find the maximum value stored in the BST.
+
+## How to Use:
+1. Create a new instance of the BinarySearchTree class.
+2. Use the `Add` method to add elements to the BST.
+3. Use the `Contains` method to check if a specific value is present in the BST.
+4. Use the `FindMaximumValue` method to find the maximum value in the BST.
+
+## Example:
+```csharp
+BinarySearchTree bst = new BinarySearchTree();
+
+bst.Add(10);
+bst.Add(5);
+bst.Add(15);
+bst.Add(20);
+
+Console.WriteLine("InOrder Traversal:");
+Console.WriteLine(string.Join(", ", bst.InOrder(bst.Root, new List<int>())));
+// Output: 5, 10, 15, 20
+
+Console.WriteLine("PreOrder Traversal:");
+Console.WriteLine(string.Join(", ", bst.PreOrder(bst.Root, new List<int>())));
+// Output: 10, 5, 15, 20
+
+Console.WriteLine("PostOrder Traversal:");
+Console.WriteLine(string.Join(", ", bst.PostOrder(bst.Root, new List<int>())));
+// Output: 5, 20, 15, 10
+
+Console.WriteLine("BST Contains 15: " + bst.Contains(15));
+// Output: True
+
+Console.WriteLine("BST Contains 25: " + bst.Contains(25));
+// Output: False
+
+Console.WriteLine("Maximum Value in the BST: " + bst.FindMaximumValue(bst.Root));
+// Output: 20
+
