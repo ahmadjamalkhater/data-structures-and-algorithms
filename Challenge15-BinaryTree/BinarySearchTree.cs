@@ -84,5 +84,24 @@ namespace Challenge15_BinaryTree
                 return false;
             }
         }
+        public int FindMaximumValue(Node? node)
+        {
+            if (node == null)
+            {
+                throw new ArgumentNullException(nameof(node), "The tree is empty.");
+            }
+
+            int maxValue = node.Data;
+            int leftMax = FindMaximumValue(node.Left);
+            int rightMax = FindMaximumValue(node.Right);
+
+            if (leftMax > maxValue)
+                maxValue = leftMax;
+
+            if (rightMax > maxValue)
+                maxValue = rightMax;
+
+            return maxValue;
+        }
     }
 }

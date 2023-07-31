@@ -104,5 +104,15 @@ namespace TestTree
             Assert.False(resultFalse2);
 
         }
+      
+
+        [Fact]
+        public void Test_FindMaximumValue_EmptyTree()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+
+            // Assert that the maximum value in an empty tree throws an exception
+            Assert.Throws<System.ArgumentNullException>(() => bst.FindMaximumValue(bst.Root));
+        }
     }
 }

@@ -36,7 +36,20 @@
             Console.WriteLine(result3);
             Console.WriteLine();
 
+
+            if (newTree.Root != null)
+            {
+                int maxVal = newTree.FindMaximumValue(newTree.Root);
+                Console.WriteLine("Maximum Value in the tree: " + maxVal);
+            }
+            else
+            {
+                Console.WriteLine("The tree is empty.");
+            }
+
             Console.WriteLine(newTree.Contains(34));
+
+
         }
     }
 }
