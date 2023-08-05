@@ -1,55 +1,45 @@
-﻿namespace Challenge15_BinaryTree
+﻿using Trees;
+
+internal class Program
 {
-    public class Program
+    private static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            BinarySearchTree newTree = new BinarySearchTree();
 
-            newTree.Add(20);
-            newTree.Add(30);
-            newTree.Add(25);
-            newTree.Add(15);
+        BinarySearchTree<int> bst = new BinarySearchTree<int>();
+        bst.Add(5);
+        bst.Add(3);
+        bst.Add(7);
+        bst.Add(2);
+        bst.Add(4);
+        bst.Add(6);
+        bst.Add(8);
 
-            newTree.Add(10);
+        Console.WriteLine("Pre-order traversal: " + string.Join(", ", bst.PreOrderTraversal()));
+        Console.WriteLine("In-order traversal: " + string.Join(", ", bst.InOrderTraversal()));
+        Console.WriteLine("Post-order traversal: " + string.Join(", ", bst.PostOrderTraversal()));
 
-            newTree.Add(5);
-            newTree.Add(35);
-            newTree.Add(40);
-            newTree.Add(21);
-
-
-            Console.WriteLine("InOrder Traversal here -----");
-            string result2 = String.Join(",", newTree.InOrder(newTree.Root, new List<int>()));
-
-            Console.WriteLine(result2);
-            Console.WriteLine();
-
-            Console.WriteLine("PreOder Traversal here -----");
-            string result1 = String.Join(",", newTree.PreOder(newTree.Root, new List<int>()));
-            Console.WriteLine(result1);
-            Console.WriteLine();
+        Console.WriteLine("Contains 4: " + bst.Contains(4)); // true
+        Console.WriteLine("Contains 10: " + bst.Contains(10)); // false
 
 
-            Console.WriteLine("PostOrder Traversal here -----");
-            string result3 = String.Join(",", newTree.PostOrder(newTree.Root, new List<int>()));
-            Console.WriteLine(result3);
-            Console.WriteLine();
+        Console.WriteLine("-------------");
+
+        BinaryTree<int> binaryTree = new BinaryTree<int>();
+        binaryTree.Root = new Node<int>(2);
+        binaryTree.Root.Left = new Node<int>(7);
+        binaryTree.Root.Right = new Node<int>(5);
+        binaryTree.Root.Left.Left = new Node<int>(2);
+        binaryTree.Root.Left.Right = new Node<int>(6);
+        binaryTree.Root.Right.Right = new Node<int>(9);
+        binaryTree.Root.Left.Right.Left = new Node<int>(5);
+        binaryTree.Root.Left.Right.Right = new Node<int>(11);
+        binaryTree.Root.Right.Right.Left = new Node<int>(4);
+
+        List<int> values = binaryTree.BreadthFirstTraversal(binaryTree);
+        string output = "[" + string.Join(",", values) + "]";
+
+        Console.WriteLine(output);
 
 
-            if (newTree.Root != null)
-            {
-                int maxVal = newTree.FindMaximumValue(newTree.Root);
-                Console.WriteLine("Maximum Value in the tree: " + maxVal);
-            }
-            else
-            {
-                Console.WriteLine("The tree is empty.");
-            }
-
-            Console.WriteLine(newTree.Contains(34));
-
-
-        }
     }
 }

@@ -1,125 +1,103 @@
-﻿﻿# Binary Search Tree Implementation in C#
+﻿
 
-## Description
 
-This project provides a C# implementation of a Binary Search Tree (BST) data structure. A Binary Search Tree is a type of binary tree where each node has at most two children, and the left child's value is less than the parent's value, while the right child's value is greater than or equal to the parent's value. The project offers methods to add elements to the tree and check if a specific value exists in the tree.
+
+# Challenge Title
+Trees implementation
+Add a method to Find the Maximum Value in a Binary Tree
+
+
+## Whiteboard Process
+![](./Assest/cc16.jpg)
 
 ## Approach & Efficiency
+In this project, I implemented a BinaryTree<<T>T> class, which represents a generic binary tree, and a BinarySearchTree<<T>T> class, which is a sub-class of BinaryTree<T> and represents a binary search tree.
+The BinaryTree<T> class contains methods for depth-first traversals (pre-order, in-order, and post-order) to return arrays of values ordered appropriately.
 
-### Adding an Element
+Also, I added a method FindMaxValue to the BinaryTree<T> class to find the maximum value in the binary tree.
 
-When adding an element to the Binary Search Tree, the `Add` method is called, which uses a private helper method `AddNode`. The `AddNode` method recursively traverses the tree to find the appropriate position for the new value based on the comparison with the current node's value. If the value is greater than the current node's value, it moves to the right child; otherwise, it moves to the left child. Once the correct position is found, the new node is created and attached as either the left or right child of the last node in the path. The time complexity for adding an element is O(h), where h is the height of the tree. In a balanced BST, the height is log(n), where n is the number of nodes, making the insertion O(log n). However, in the worst case, the tree can become skewed, leading to O(n) time complexity for insertion.
+For the implementation of the FindMaxValue method, I used a recursive depth-first traversal approach starting from the root node. The method recursively explores the left and right subtrees to find the maximum value.
 
-### Checking Element Existence
 
-To check if a specific value exists in the Binary Search Tree, the `Contains` method is called. The `Contains` method also uses a private helper method `ContainsNode`, which traverses the tree similarly to the `AddNode` method, but instead of adding elements, it checks for equality with the target value at each node. If the target value is found, the method returns true. Otherwise, it continues the search based on the comparison of the target value with the current node's value. The time complexity for checking the existence of an element is also O(h), where h is the height of the tree.
+FindMaxValue: O(n) - The time complexity as it traverses all nodes once to find the maximum value.
 
-### Traversal Methods
-
-The project also provides three different methods for traversing the Binary Search Tree: pre-order, in-order, and post-order traversal. All three traversal methods use recursion to visit each node in the tree and perform specific operations. The time complexity for each traversal method is O(n), where n is the number of nodes in the tree, as each node needs to be visited exactly once.
-## Assest
-![1](./Assest/aa)
-![2](./Assest/dd)
-![3](./Assest/ff)
-![4](./Assest/ss)
 ## Solution
 
-To use the Binary Search Tree implementation, follow these steps:
+To use the binary tree and binary search tree classes, follow these steps:
 
-1. Include the `BinarySearchTree.cs`, `BinaryTree.cs`, and `Node.cs` files into your C# project.
-2. Create a new instance of `BinarySearchTree` with the desired data type, e.g., `BinarySearchTree<int>` for integers.
-3. Use the `Add` method to add elements to the tree.
-4. Use the `Contains` method to check if a value exists in the tree.
-5. Optionally, use the traversal methods `PreOrderTraversal`, `InOrderTraversal`, and `PostOrderTraversal` to explore the elements in the tree.
+- Include the BinaryTree<T> and BinarySearchTree<T> classes in your project.
+-
+Example
+Here's an example of how to use the binary search tree to find the maximum value:
 
-Example:
 
-```csharp
-namespace Challenge15_BinaryTree
+
+class Program
 {
-    public class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            BinarySearchTree newTree = new BinarySearchTree();
+        // Create a binary search tree and add nodes
+        BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>();
+        binarySearchTree.Add(10);
+        binarySearchTree.Add(5);
+        binarySearchTree.Add(15);
+        binarySearchTree.Add(3);
+        binarySearchTree.Add(8);
+        binarySearchTree.Add(20);
 
-            newTree.Add(20);
-            newTree.Add(30);
-            newTree.Add(25);
-            newTree.Add(15);
-
-            newTree.Add(10);
-
-            newTree.Add(5);
-            newTree.Add(35);
-            newTree.Add(40);
-            newTree.Add(21);
-
-
-            Console.WriteLine("InOrder Traversal here -----");
-            string result2 = String.Join(",", newTree.InOrder(newTree.Root, new List<int>()));
-
-            Console.WriteLine(result2);
-            Console.WriteLine();
-
-            Console.WriteLine("PreOder Traversal here -----");
-            string result1 = String.Join(",", newTree.PreOder(newTree.Root, new List<int>()));
-            Console.WriteLine(result1);
-            Console.WriteLine();
-
-
-            Console.WriteLine("PostOrder Traversal here -----");
-            string result3 = String.Join(",", newTree.PostOrder(newTree.Root, new List<int>()));
-            Console.WriteLine(result3);
-            Console.WriteLine();
-
-            Console.WriteLine(newTree.Contains(34));
-        }
+        int maxValue = binarySearchTree.FindMaxValue();
+        Console.WriteLine("Maximum value in the binary tree: " + maxValue);
     }
 }
+Output:
+
+Maximum value in the binary tree: 20
+
+
+// CC-17
+
+# Binary Tree Breadth-First Traversal
+
+## Description
+A method to implement a breadth-first traversal algorithm for a binary tree, and returns a list of all values encountered in the order they were encountered.
+**breadth-first traversal visits all the nodes of the binary tree level by level, from left to right**
+
+## Whiteboard Process
+![](./Assest/cc17.jpg)
+
+## Approach & Efficiency
+To perform a breadth-first traversal, we use a queue data structure, The algorithm starts with the root node and enqueues it into the queue.
+Then, "while" the queue is not empty, we dequeue a node from the front of the queue, add its value to the result list, and enqueue its left and right children (if present).
+
+The time complexity of the breadth-first traversal algorithm is O(n) because we visit each node in the binary tree exactly once.
+The space complexity is O(n), as it returns a list of all nodes
+
+## Solution
+
+Example:
+```csharp
+
+        BinaryTree<int> binaryTree = new BinaryTree<int>();
+        binaryTree.Root = new Node<int>(2);
+        binaryTree.Root.Left = new Node<int>(7);
+        binaryTree.Root.Right = new Node<int>(5);
+        binaryTree.Root.Left.Left = new Node<int>(2);
+        binaryTree.Root.Left.Right = new Node<int>(6);
+        binaryTree.Root.Right.Right = new Node<int>(9);
+        binaryTree.Root.Left.Right.Left = new Node<int>(5);
+        binaryTree.Root.Left.Right.Right = new Node<int>(11);
+        binaryTree.Root.Right.Right.Left = new Node<int>(4);
+
+        List<int> result = binaryTree.BreadthFirstTraversal(binaryTree.Root);
+        Console.WriteLine("Breadth-First Traversal Result:");
+        Console.WriteLine("[" + string.Join(",", result) + "]");
+
 ```
 
-# challenge16 Binary Search Tree Operations
+Output:
+```
+Breadth-First Traversal Result:
+[2,7,5,2,6,9,5,11,4]
+```
 
-## Description:
-This code implements a Binary Search Tree (BST) with the following operations:
-1. Add: Add a new node to the BST while maintaining its binary search property.
-2. Contains: Check if the BST contains a specific value.
-3. FindMaximumValue: Find the maximum value stored in the BST.
-
-## How to Use:
-1. Create a new instance of the BinarySearchTree class.
-2. Use the `Add` method to add elements to the BST.
-3. Use the `Contains` method to check if a specific value is present in the BST.
-4. Use the `FindMaximumValue` method to find the maximum value in the BST.
-
-## Example:
-```csharp
-BinarySearchTree bst = new BinarySearchTree();
-
-bst.Add(10);
-bst.Add(5);
-bst.Add(15);
-bst.Add(20);
-
-Console.WriteLine("InOrder Traversal:");
-Console.WriteLine(string.Join(", ", bst.InOrder(bst.Root, new List<int>())));
-// Output: 5, 10, 15, 20
-
-Console.WriteLine("PreOrder Traversal:");
-Console.WriteLine(string.Join(", ", bst.PreOrder(bst.Root, new List<int>())));
-// Output: 10, 5, 15, 20
-
-Console.WriteLine("PostOrder Traversal:");
-Console.WriteLine(string.Join(", ", bst.PostOrder(bst.Root, new List<int>())));
-// Output: 5, 20, 15, 10
-
-Console.WriteLine("BST Contains 15: " + bst.Contains(15));
-// Output: True
-
-Console.WriteLine("BST Contains 25: " + bst.Contains(25));
-// Output: False
-
-Console.WriteLine("Maximum Value in the BST: " + bst.FindMaximumValue(bst.Root));
-// Output: 20
 

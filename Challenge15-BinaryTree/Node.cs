@@ -1,29 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Challenge15_BinaryTree
+namespace Trees
 {
-    public class Node
+    public class Node<T>
     {
-        public int Data { get; set; }
 
-        public Node? Left { get; set; }
+        public T Value { get; set; }
+        public Node<T> Right { get; set; }
+        public Node<T> Left { get; set; }
 
-        public Node? Right { get; set; }
-
-        public Node()
+        public Node(T value)
         {
-            Left = null;
+            Value = value;
             Right = null;
-        }
-        public Node(int data)
-        {
-            Data = data;
             Left = null;
-            Right = null;
         }
+
+
+
+
+
     }
 }
+
