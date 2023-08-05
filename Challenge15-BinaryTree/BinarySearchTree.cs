@@ -1,107 +1,77 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using Trees;
 
-namespace Challenge15_BinaryTree
+namespace Trees
 {
-    public class BinarySearchTree : BinaryTree
+    public class BinarySearchTree<T> : BinaryTree<T> where T : IComparable
     {
-        public Node? Root { get; set; }
-        public BinarySearchTree()
-        {
-            Root = null;
-        }
-        public BinarySearchTree(int data)
-        {
-            Root = new Node(data);
-        }
+        //No constructor , just to make it sorted
 
-        public void Add(int data)
+        public void Add(T value)
         {
-            if (Root == null)
-            {
-                Root = new Node(data);
-                return;
-            }
-
-            Node node = Root;
-            while (true)
-            {
-                if (data < node.Data)
-                {
-                    if (node.Left == null)
-                    {
-                        node.Left = new Node(data);
-                        break;
-                    }
-                    else
-                    {
-                        node = node.Left;
-                    }
-                }
-                else
-                {
-                    if (node.Right == null)
-                    {
-                        node.Right = new Node(data);
-                        break;
-                    }
-                    else
-                    {
-                        node = node.Right;
-                    }
-                }
-            }
+            Root = AddNode(Root, value);
         }
 
 
-        public bool Contains(int data)
+
+
+        public Node<T> AddNode(Node<T> node, T value)
         {
-            if (Root == null)
-            {
-                return false;
-            }
-            else
-            {
-                Node containNode = Root;
-                while (containNode != null)
-                {
-                    if (containNode.Data == data)
-                    {
-                        return true;
-                    }
-                    else if (containNode.Data > data)
-                    {
-                        containNode = containNode.Left;
-                    }
-                    else
-                    {
-                        containNode = containNode.Right;
-                    }
-                }
-                return false;
-            }
+
+            if (node == null)
+                return new Node<T>(value);
+
+
+            if (value.CompareTo(node.Value) > 0) //returns positave when its greater
+                node.Right = AddNode(node.Right, value);
+
+            else if (value.CompareTo(node.Value) < 0)
+                node.Left = AddNode(node.Left, value);
+
+            return node;
+
         }
-        public int FindMaximumValue(Node? node)
+
+
+
+        /*
+
+    Contains
+    Argument: value
+    Returns: boolean indicating whether or not the value is in the tree at least once.
+    */
+
+
+
+        public bool Contains(T value)
+        {
+            return Contains(Root, value);
+        }
+
+        private bool Contains(Node<T> node, T value)   //recursion
         {
             if (node == null)
             {
-                throw new ArgumentNullException(nameof(node), "The tree is empty.");
+                return false;
             }
 
-            int maxValue = node.Data;
-            int leftMax = FindMaximumValue(node.Left);
-            int rightMax = FindMaximumValue(node.Right);
-
-            if (leftMax > maxValue)
-                maxValue = leftMax;
-
-            if (rightMax > maxValue)
-                maxValue = rightMax;
-
-            return maxValue;
+            if (node.Value.Equals(value))
+            {
+                return true;
+            }
+            else if (value.CompareTo(node.Value) < 0)
+            {
+                return Contains(node.Left, value);
+            }
+            else
+            {
+                return Contains(node.Right, value);
+            }
         }
+
+
     }
 }
+
+
