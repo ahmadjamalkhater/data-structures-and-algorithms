@@ -41,5 +41,22 @@ internal class Program
         Console.WriteLine(output);
 
 
+
+        BinarySearchTree<int> tree = new BinarySearchTree<int>();
+        tree.Add(5);
+        tree.Add(7);
+        tree.Add(9);
+        tree.Add(15);
+
+
+        BinarySearchTree<string> fizzBuzzTree = tree.FizzBuzz(tree);
+
+        List<string> fizzBuzzValues = fizzBuzzTree.BreadthFirstTraversal(fizzBuzzTree);
+        Console.WriteLine("FizzBuzz Tree values:");
+        foreach (string value in fizzBuzzValues)
+        {
+            Console.WriteLine(value);
+        }
+
     }
 }
