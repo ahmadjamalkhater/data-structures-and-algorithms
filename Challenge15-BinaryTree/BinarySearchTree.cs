@@ -69,7 +69,53 @@ namespace Trees
                 return Contains(node.Right, value);
             }
         }
+        //cc18
+        public BinarySearchTree<string> FizzBuzz(BinaryTree<int> tree)
+        {
 
+            if (tree.Root == null)
+                throw new InvalidOperationException("Tree is empty!");
+
+
+            Queue<Node<int>> queue = new Queue<Node<int>>();
+            BinarySearchTree<string> result = new BinarySearchTree<string>();
+
+            queue.Enqueue(tree.Root);
+
+            while (queue.Count > 0)
+            {
+                Node<int> currentNode = queue.Dequeue();
+
+                if (currentNode.Value % 15 == 0)
+                {
+                    result.Add("FizzBuzz");
+                }
+                else if (currentNode.Value % 5 == 0)
+                {
+                    result.Add("Buzz");
+                }
+                else if (currentNode.Value % 3 == 0)
+                {
+                    result.Add("Fizz");
+                }
+                else
+                {
+                    result.Add(currentNode.Value.ToString());
+                }
+
+                if (currentNode.Left != null)
+                {
+                    queue.Enqueue(currentNode.Left);
+                }
+
+                if (currentNode.Right != null)
+                {
+                    queue.Enqueue(currentNode.Right);
+                }
+            }
+
+            return result;
+        }
 
     }
 }
