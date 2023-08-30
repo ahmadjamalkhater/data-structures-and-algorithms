@@ -209,7 +209,7 @@ public class UnitTest1
     }
 
 
-    
+
 
     //CC18
 
@@ -236,5 +236,32 @@ public class UnitTest1
 
         Assert.Equal(expected.PreOrderTraversal(), result.PreOrderTraversal());
     }
-}
 
+
+
+    // sum of all the odd numbers in a binary search tree
+
+    [Fact]
+    public void TestSumOddValues()
+    {
+        // Arrange
+        Node<int> root = new Node<int>(5)
+        {
+            Left = new Node<int>(3)
+            {
+                Left = new Node<int>(1),
+                Right = new Node<int>(4)
+            },
+            Right = new Node<int>(8)
+            {
+                Left = new Node<int>(7),
+                Right = new Node<int>(9)
+            }
+        };
+
+        // Act
+        int result = BinaryTree<int>.SumOddValues(root);
+
+    }
+
+}

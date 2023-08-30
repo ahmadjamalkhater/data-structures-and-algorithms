@@ -155,7 +155,18 @@ namespace Trees
 
         }
 
+        //sum of all the odd numbers in a binary search tree
+        public static int SumOddValues(Node<T> root)
+        {
+            if (root == null)
+                return 0;
 
+            int oddSum = Convert.ToInt32(root.Value) % 2 == 1 ? Convert.ToInt32(root.Value) : 0;
+            oddSum += SumOddValues(root.Left);
+            oddSum += SumOddValues(root.Right);
+
+            return oddSum;
+        }
 
     }
 }
