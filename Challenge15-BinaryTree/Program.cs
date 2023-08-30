@@ -58,5 +58,26 @@ internal class Program
             Console.WriteLine(value);
         }
 
+
+        Console.WriteLine("-------------");
+
+
+        Node<int> root = new Node<int>(5)
+        {
+            Left = new Node<int>(3)
+            {
+                Left = new Node<int>(1),
+                Right = new Node<int>(4)
+            },
+            Right = new Node<int>(8)
+            {
+                Left = new Node<int>(7),
+                Right = new Node<int>(9)
+            }
+        };
+
+        int result = BinaryTree<int>.SumOddValues(root);
+        Console.WriteLine(result);  // The output should be 24
     }
+
 }
