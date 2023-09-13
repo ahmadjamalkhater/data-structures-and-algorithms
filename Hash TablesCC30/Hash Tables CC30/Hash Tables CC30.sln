@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash Tables CC30", "Hash Tables CC30.csproj", "{45977A34-E86C-4444-B8C3-C97A562C2843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{7A8E203A-0D29-42D0-B106-512778946ECE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5E6714F-4479-4AC8-83D7-8AA3884DB59E}"
+	ProjectSection(SolutionItems) = preProject
+		Redme.md = Redme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45977A34-E86C-4444-B8C3-C97A562C2843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45977A34-E86C-4444-B8C3-C97A562C2843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45977A34-E86C-4444-B8C3-C97A562C2843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45977A34-E86C-4444-B8C3-C97A562C2843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A8E203A-0D29-42D0-B106-512778946ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A8E203A-0D29-42D0-B106-512778946ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A8E203A-0D29-42D0-B106-512778946ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A8E203A-0D29-42D0-B106-512778946ECE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7627528E-F869-43D0-8AB0-241C36FD4A42}
+	EndGlobalSection
+EndGlobal
