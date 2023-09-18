@@ -12,6 +12,8 @@
 
 ## Description
 
+![hash](./hash.jpg)
+
 This project implements a hash table data structure in C# using generics. A hash table is a data structure that allows for efficient key-value pair storage and retrieval. The provided code includes a `Hashtable<TKey, TValue>` class, which allows you to set, get, check for the existence of, and retrieve keys. The code also includes a `HashNode<TKey, TValue>` class, which represents the key-value pair within the hash table.
 
 ## Approach & Efficiency
