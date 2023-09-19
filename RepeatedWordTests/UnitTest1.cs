@@ -4,26 +4,33 @@ using Xunit;
 
 public class WordProcessorTests
 {
-    [Fact]
-    public void TestWordCounts()
+    public class UnitTest1
     {
-        WordProcessor wordProcessor = new WordProcessor();
-        string input = "It was the best of times, it was the worst of times...";
-        Dictionary<string, int> wordCounts = wordProcessor.GetWordCounts(input);
+        
+        [Fact]
+        public void NullInput()
+        {
+            string input = null;
+            string result = RepeatedWord.FindFirstRepeatedWord(input);
+            Assert.Null(result);
+        }
 
-        Assert.Equal(2, wordCounts["it"]);
-        Assert.Equal(2, wordCounts["was"]);
-        Assert.Equal(2, wordCounts["the"]);
-        Assert.Equal(1, wordCounts["best"]);
-    }
+        [Fact]
+        public void NoRepeatedWord()
+        {
+            string input = "This is a good student.";
+            string result = RepeatedWord.FindFirstRepeatedWord(input);
+            Assert.Null(result);
+        }
 
-    [Fact]
-    public void TestMostFrequentWords()
-    {
-        WordProcessor wordProcessor = new WordProcessor();
-        string input = "It was the best of times, it was the worst of times...";
-        List<string> mostFrequentWords = wordProcessor.GetMostFrequentWords(input, 3);
-
-        Assert.Equal(new List<string> { "it", "was", "the" }, mostFrequentWords);
+        [Fact]
+        public void RepeatedWordExists()
+        {
+            string input = "This is  a good student with a smart brain";
+            string result = RepeatedWord.FindFirstRepeatedWord(input);
+            Assert.Equal("a", result);
+        }
     }
 }
+
+   
