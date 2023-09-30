@@ -1,18 +1,50 @@
-﻿using data_structures_and_algorithms_.challenge11.pseudo_queue;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
-namespace data_structures_and_algorithms_
+class Program
 {
-    internal class program
+    static string FindMostCommonWord(string book)
     {
-        static void Main(string[] args)
-        {
+        // Convert the book to lowercase and split it into words
+        string[] words = Regex.Split(book.ToLower(), @"\W+");
 
+        // Create a dictionary to store word counts
+        Dictionary<string, int> wordCount = new Dictionary<string, int>();
+
+        // Initialize temporary variables to store the most common word and its count
+        string mostCommonWord = "";
+        int mostCommonCount = 0;
+
+        foreach (string word in words)
+        {
+            if (word != "")
+            {
+                if (wordCount.ContainsKey(word))
+                {
+                    wordCount[word]++;
+                }
+                else
+                {
+                    wordCount[word] = 1;
+                }
+
+                // Update most common word if a new most common word is found
+                if (wordCount[word] > mostCommonCount || (wordCount[word] == mostCommonCount && string.CompareOrdinal(word, mostCommonWord) < 0))
+                {
+                    mostCommonWord = word;
+                    mostCommonCount = wordCount[word];
+                }
+            }
         }
+
+        return mostCommonWord;
+    }
+
+    static void Main()
+    {
+        string bookText = "This is a sample book. This book contains multiple words. This is a simple example.";
+        string mostCommonWord = FindMostCommonWord(bookText);
+        Console.WriteLine("The most common word in the book is: " + mostCommonWord);
     }
 }
-  
