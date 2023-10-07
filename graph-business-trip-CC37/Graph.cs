@@ -37,30 +37,5 @@ namespace graphs
         }
 
 
-        public IEnumerable<string> GetVertices()
-        {
-            return adjacencyList.Keys;
-        }
-
-
-        public IEnumerable<(string, int)> GetNeighbors(string vertex)
-        {
-            if (!adjacencyList.ContainsKey(vertex))
-            {
-                return new List<(string, int)>();
-            }
-
-            return adjacencyList[vertex];
-        }
-
-
-        public int Size()
-        {
-            return adjacencyList.Count;
-        }
-
-
-
-            }
-        }
-    
+    }
+}
