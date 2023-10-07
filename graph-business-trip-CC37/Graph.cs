@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,5 +37,57 @@ namespace graphs
         }
 
 
+        public IEnumerable<string> GetVertices()
+        {
+            return adjacencyList.Keys;
+        }
+
+
+        public IEnumerable<(string, int)> GetNeighbors(string vertex)
+        {
+            if (!adjacencyList.ContainsKey(vertex))
+            {
+                return new List<(string, int)>();
+            }
+
+            return adjacencyList[vertex];
+        }
+
+
+        public int Size()
+        {
+            return adjacencyList.Count;
+        }
+        public IEnumerable<string> DepthFirstPreOrder(string startNode)
+        {
+            if (!adjacencyList.ContainsKey(startNode))
+            {
+                throw new ArgumentException("Start node is not in the graph.");
+            }
+
+            var visited = new HashSet<string>();
+            var result = new List<string>();
+
+            DepthFirstPreOrderHelper(startNode, visited, result);
+
+            return result;
+        }
+
+        private void DepthFirstPreOrderHelper(string node, HashSet<string> visited, List<string> result)
+        {
+            visited.Add(node);
+            result.Add(node);
+
+            foreach (var neighbor in adjacencyList[node])
+            {
+                if (!visited.Contains(neighbor.Item1))
+                {
+                    DepthFirstPreOrderHelper(neighbor.Item1, visited, result);
+                }
+            }
+        }
+
+
     }
-}
+        }
+    

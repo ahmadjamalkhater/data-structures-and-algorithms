@@ -101,4 +101,22 @@ namespace testGraph
             Assert.Equal(0, result);
         }
     }
+
 }
+
+```
+---
+## CC38
+
+conducting a depth-first pre-order traversal on a graph. Depth-first pre-order traversal visits each node in the graph and records nodes in the order they are visited.
+
+![whitebord](./CC38.jpg)
+
+## Test
+![Test](./TestCC38.jpg)
+
+## Output
+
+![Output](./outputCC38.jpg)
+
+
